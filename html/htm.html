@@ -1,0 +1,188 @@
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 25px; 
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            margin: 0 10px;
+        }       
+         #quizContainer {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .option {
+            display: block;
+            margin: 10px 0;
+        }
+        #submitBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            text-align: center;
+            border-radius: 5px;
+        }
+        
+        button {
+    background-color: #267b29;
+    color: white;
+    padding: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+    </style>
+    <title>Questionnaire</title>
+</head>
+<body>
+
+    <div class="question" id="question1">
+        <p id="question">1.What does the <img> tag stand for, and what is its purpose?</p>
+
+        <label class="option">
+            <input type="radio" name="answer" value="a"> A. Image, used for creating image maps
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="b"> B. Input, used for user input fields
+
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="c"> C. Image, used for embedding images in a webpage
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="d"> D. Inline, used for inline styling
+        </label>
+    </div>
+
+    <div class="question" id="question2">
+        <p id="question">2. Which tag is used for creating a clickable button in HTML?</p>
+
+            <label class="option">
+                <input type="radio" name="answer" value="a"> A. button
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="b"> B. clickable
+
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="c"> C. input
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="d"> D. submit
+            </label>
+    </div>
+    <div class="question" id="question3">
+        <p id="question">3. Which tag is used to create an unordered list in HTML?</p>
+
+            <label class="option">
+                <input type="radio" name="answer" value="a"> A. ol
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="b"> B. li
+
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="c"> C. ul
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="d"> D. dl
+            </label>
+    </div>
+    <div class="question" id="question4">
+        <p id="question">4. What is the purpose of the <meta> tag in HTML</p>
+
+            <label class="option">
+                <input type="radio" name="answer" value="a"> A. To define metadata about the document
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="b"> B. To create a hyperlink
+
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="c"> C. To define a table
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="d"> D. To insert an image
+            </label>
+    </div>
+    <div class="question" id="question5">
+        <p id="question">5. Which HTML attribute is used to specify a unique identifier for an element?</p>
+
+            <label class="option">
+                <input type="radio" name="answer" value="a"> A. class
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="b"> B. id
+
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="c"> C. style
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="d"> D. name
+            </label>
+    </div>
+    <div class="button-container">
+        <button onclick="previousQuestion()">Previous</button>
+        <button onclick="submitForm()">Submit</button>
+        <button onclick="nextQuestion()">Next</button>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+
+        function showQuestion(questionNumber) {
+            document.querySelectorAll('.question').forEach(question => {
+                question.style.display = 'none';
+            });
+            document.getElementById(`question${questionNumber}`).style.display = 'block';
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        function submitForm() {
+            var selectedAnswer = document.querySelector('input[name="answer"]:checked');
+            if (selectedAnswer) {
+                alert("Your answer is: " + selectedAnswer.value);
+            } else {
+                alert("Please select an answer before submitting.");
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < document.querySelectorAll('.question').length) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        showQuestion(currentQuestion);
+    </script>
+
+</body>
+</html>

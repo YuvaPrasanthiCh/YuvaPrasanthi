@@ -1,0 +1,123 @@
+<html>
+<head>
+<style>
+      body {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+    .background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:url('signinpic.webp');
+    background-size: cover;
+    background-position: center;
+
+}
+        form {
+            border: 3px solid #f1f1f1;
+            width: 500px;
+            height:75vh;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color:rgb(171, 141, 165);
+            border-radius: 3px;
+            backdrop-filter: blur(100px);
+        }
+    container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+        input{
+            width: 100%;
+            margin: 8px 0;
+            padding: 12px 10px;
+            display:inline-block;
+            border: 2px solid #2513ab;
+            box-sizing: border-box;
+            border-radius: 5px;
+          
+        }
+        
+        .button {
+            background-color:rgba(230, 4, 4, 0.844);
+            width: 100%;
+            color: white;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bolder;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            opacity: 0.7;
+            background-color: #088f4c;
+        }
+</style>
+    <title>signup</title>
+    </head>
+    <body >
+    <div class="background-image"></div>
+    <form>
+    <h1 align="center">Sign Up</h1>
+    <div class="container">
+    <table cellspacing="10">
+    <tr>
+    <th align="left">Name :</th>
+    <th  align="left"><input type="text" placeholder="enter full name"  pattern="[A-za-z]*"required></th>
+    </tr>
+    <tr>
+    <th align="left">Password :</th>
+    <th  align="left"><input type="password" placeholder="password" span id="y" name="password" pattern="^[A-Z][a-z]*[0-9]*" minlength="6"  placeholder="Enter password"required></th>
+    </tr>
+    <tr>
+    <th align="left">Confirm Password :</th>
+    <th  align="left"><input type="password" placeholder="password" span id="z" name="password" pattern="^[A-Z[a-z]*[0-9]*" minlength="6"  placeholder="Enter password"required></th> 
+    </tr>
+    <tr>
+    <th align="left">Phone Number :</th>
+    <th  align="left"><input type="number" pattern="[^9][0-9]{10}"required></th>
+    </tr>
+    <tr>
+    <th align="left">Email Id :</th>
+    <th  align="left"><input type="email" placeholder="sample@example.com"required></th>
+    </tr>
+    <tr cellpadding="2">           
+    <th><input type="submit" value="Submit" class="button" ></th>   
+    <th><input type="reset" value="clear" class="button"></th>
+    </tr>
+    </table>    
+    </div>
+    </form>
+    <script>
+        var q=document.getElementById("y");
+        var r=document.getElementById("z");
+        if(y == z)
+        {
+            document.getElementById('show').innerhtml="password Created Successfully";
+        }
+        else{
+            document.getElementById('show').innerhtml="password did not match";
+        }
+        </script> 
+    </body>
+    </html>

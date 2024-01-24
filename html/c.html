@@ -1,0 +1,197 @@
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 25px; 
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            margin: 0 10px;
+        }       
+         #quizContainer {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .option {
+            display: block;
+            margin: 10px 0;
+        }
+        #submitBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            text-align: center;
+            border-radius: 5px;
+        }
+        
+        button {
+    background-color: #267b29;
+    color: white;
+    padding: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+    </style>
+    <title>Questionnaire</title>
+</head>
+<body>
+
+    <div class="question" id="question1">
+        <p id="question">1.How do you dynamically allocate memory in C?</p>
+
+        <label class="option">
+            <input type="radio" name="answer" value="a"> A. malloc()
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="b"> B. allocate()
+
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="c"> C. new()
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="d"> D. memalloc()
+        </label>
+    </div>
+
+    <div class="question" id="question2">
+        <p id="question">2.What is the value of 'x' after the following code?<br>
+            #include <stdio.h><br>
+                int main() {<br>
+                int x = 10;<br>
+                int *ptr = &x;<br>
+                *ptr = *ptr + 5;<br>
+                 printf("The value of x is: %d\n", x);<br>
+            return 0;<br>
+            }</p>
+
+            <label class="option">
+                <input type="radio" name="answer" value="a"> A. 5
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="b"> B. 10
+
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="c"> C. 15
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="d"> D. 20
+            </label>
+    </div>
+    <div class="question" id="question3">
+        <p id="question">3. What is the purpose of the return statement in a C function?</p>
+
+        <label class="option">
+            <input type="radio" name="answer" value="a"> A. To terminate the program
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="b"> B. To define a loop
+
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="c"> C. To return a value from a function
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="d"> D. To print output to the console
+        </label>
+    </div>
+    <div class="question" id="question4">
+        <p id="question">4. What is the syntax for declaring a structure in C?</p>
+
+        <label class="option">
+            <input type="radio" name="answer" value="a"> A. structure MyStruct { };
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="b"> B. struct MyStruct { };
+
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="c"> C. define MyStruct { };
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="d"> D. create MyStruct { };
+        </label>
+    </div>
+    <div class="question" id="question5">
+        <p id="question">5. What is the purpose of the sizeof operator in C?</p>
+
+        <label class="option">
+            <input type="radio" name="answer" value="a"> A. To find the size of a variable
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="b"> B. To perform arithmetic operations
+
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="c"> C. To define the size of an array
+
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="d"> D. To allocate memory
+        </label>
+    </div>
+    <div class="button-container">
+        <button onclick="previousQuestion()">Previous</button>
+        <button onclick="submitForm()">Submit</button>
+        <button onclick="nextQuestion()">Next</button>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+
+        function showQuestion(questionNumber) {
+            document.querySelectorAll('.question').forEach(question => {
+                question.style.display = 'none';
+            });
+            document.getElementById(`question${questionNumber}`).style.display = 'block';
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        function submitForm() {
+            var selectedAnswer = document.querySelector('input[name="answer"]:checked');
+            if (selectedAnswer) {
+                alert("Your answer is: " + selectedAnswer.value);
+            } else {
+                alert("Please select an answer before submitting.");
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < document.querySelectorAll('.question').length) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        showQuestion(currentQuestion);
+    </script>
+
+</body>
+</html>

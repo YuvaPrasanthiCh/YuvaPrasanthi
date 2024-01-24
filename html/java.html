@@ -1,0 +1,192 @@
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 25px; 
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            margin: 0 10px;
+        }       
+         #quizContainer {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .option {
+            display: block;
+            margin: 10px 0;
+        }
+        #submitBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            text-align: center;
+            border-radius: 5px;
+        }
+        
+        button {
+    background-color: #267b29;
+    color: white;
+    padding: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+    </style>
+    <title>Questionnaire</title>
+</head>
+<body>
+
+    <div class="question" id="question1">
+        <p id="question">1.What is the difference between == and .equals() in Java?</p>
+
+        <label class="option">
+            <input type="radio" name="answer" value="a"> A. They are interchangeable
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="b"> B. '== compares object references, while .equals() compares object contents'
+
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="c"> C. == compares primitive types, while .equals() compares objects
+        </label>
+        <label class="option">
+            <input type="radio" name="answer" value="d"> D. They both perform shallow object comparison
+        </label>
+    </div>
+
+    <div class="question" id="question2">
+        <p id="question">2.What is the purpose of the super keyword in Java?<br></p>
+            <label class="option">
+                <input type="radio" name="answer" value="a"> A. It is used to call the superclass constructor
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="b"> B. It is used to access the superclass's static members
+
+
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="c"> C. It is used to invoke the superclass's method
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="d"> D. It is used to create an instance of the superclass
+
+            </label>
+    </div>
+    <div class="question" id="question3">
+        <p id="question">3. Which Java keyword is used to explicitly exit a method and return a value?</p>
+            <label class="option">
+                <input type="radio" name="answer" value="a"> A. exit
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="b"> B. stop
+
+
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="c"> C. return
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="d"> D. break
+
+            </label>
+    </div>
+    <div class="question" id="question4">
+        <p id="question">4. What does the static keyword mean in Java?</p>
+            <label class="option">
+                <input type="radio" name="answer" value="a"> A. It indicates that a variable is constant.
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="b"> B. It is used to declare a variable.
+
+
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="c"> C. It means that a method belongs to the class, not the instance.
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="d"> D. It specifies that a variable can only be accessed within its own class.
+
+            </label>
+    </div>
+    <div class="question" id="question5">
+        <p id="question">5. What is the purpose of the public static void main(String[] args) method in Java?</p>
+            <label class="option">
+                <input type="radio" name="answer" value="a"> A. It is the main method that is executed when a Java program runs.
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="b"> B. It is used for printing output to the console.
+
+
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="c"> C. It is a method for defining variables.
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="d"> D. It is a built-in function for mathematical operations.
+
+            </label>
+    </div>
+    <div class="button-container">
+        <button onclick="previousQuestion()">Previous</button>
+        <button onclick="submitForm()">Submit</button>
+        <button onclick="nextQuestion()">Next</button>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+
+        function showQuestion(questionNumber) {
+            document.querySelectorAll('.question').forEach(question => {
+                question.style.display = 'none';
+            });
+            document.getElementById(`question${questionNumber}`).style.display = 'block';
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        function submitForm() {
+            var selectedAnswer = document.querySelector('input[name="answer"]:checked');
+            if (selectedAnswer) {
+                alert("Your answer is: " + selectedAnswer.value);
+            } else {
+                alert("Please select an answer before submitting.");
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < document.querySelectorAll('.question').length) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        showQuestion(currentQuestion);
+    </script>
+
+</body>
+</html>
